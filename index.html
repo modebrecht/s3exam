@@ -89,13 +89,17 @@
       box-shadow: 0 8px 24px rgba(17, 24, 39, 0.08);
       border: 1px solid rgba(136, 146, 171, 0.42);
       position: sticky;
-      top: 4px;
+      top: 0;
       z-index: 20;
       backdrop-filter: blur(8px);
     }
 
     @media (min-width: 720px) {
       header { padding: 14px 16px 12px; }
+    }
+
+    @media (max-width: 999px) {
+      header { display: none; }
     }
 
     .header-top {
@@ -230,6 +234,60 @@
       background: rgba(255, 255, 255, 0.98);
       border-color: rgba(136, 146, 171, 0.72);
     }
+
+    .side-nav:hover { right: 0; }
+
+    /* Right side icon nav */
+
+    .side-nav {
+      position: fixed;
+      top: 90px;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 10px 8px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      border-radius: 14px 0 0 14px;
+      box-shadow: 0 12px 32px rgba(17, 24, 39, 0.14);
+      z-index: 30;
+      backdrop-filter: blur(6px);
+    }
+
+    .side-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid rgba(136, 146, 171, 0.45);
+      background: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+      color: #0f1f5a;
+    }
+
+    .side-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(17, 24, 39, 0.12);
+      border-color: rgba(59, 91, 255, 0.4);
+    }
+
+    .side-btn.active {
+      background: linear-gradient(135deg, rgba(59, 91, 255, 0.18), rgba(124, 58, 237, 0.18));
+      border-color: rgba(59, 91, 255, 0.55);
+      color: #0f1f5a;
+      box-shadow: 0 12px 26px rgba(59, 91, 255, 0.18);
+    }
+
+    /* Reserve space for side nav on smaller viewports */
+    @media (max-width: 999px) {
+      .page { padding-right: 100px; }
+    }
+
 
     main {
       margin-top: 12px;
@@ -406,11 +464,8 @@
       </div>
 
       <div class="filter-bar" id="filterBar">
-        <button class="filter-btn active" data-filter="alle">
-          <span>✨</span>Alle
-        </button>
-        <button class="filter-btn" data-filter="allgemein">
-          <span>🧭</span>Allgemein
+        <button class="filter-btn active" data-filter="allgemein">
+          <span>✨</span>Allgemein
         </button>
         <button class="filter-btn" data-filter="deutsch">
           <span>📚</span>Deutsch
@@ -436,6 +491,17 @@
       </div>
     </header>
 
+    <nav class="side-nav" aria-label="Schnellnavigation">
+      <button class="side-btn active" data-filter="allgemein" title="Allgemein">✨</button>
+      <button class="side-btn" data-filter="mathe" title="Mathematik">🧮</button>
+      <button class="side-btn" data-filter="nt" title="N &amp; T">🧪</button>
+      <button class="side-btn" data-filter="deutsch" title="Deutsch">DE</button>
+      <button class="side-btn" data-filter="englisch" title="Englisch">EN</button>
+      <button class="side-btn" data-filter="franz" title="Französisch">FR</button>
+      <button class="side-btn" data-filter="sos" title="SOS">🚨</button>
+      <button class="side-btn" data-filter="faq" title="FAQ">❓</button>
+    </nav>
+
     <main id="promptGrid">
       <!-- Spalte 1 -->
       <div class="prompt-column">
@@ -445,7 +511,7 @@
             <div class="prompt-header-row">
               <h2 class="prompt-title">Thema erklären lassen</h2>
               <div class="subject-pill">
-                <span class="emoji">🧭</span>
+                <span class="emoji">✨</span>
                 Allgemeine Erklärung
               </div>
             </div>
@@ -470,7 +536,7 @@ Frage mich am Ende 3 Verständnisfragen und warte auf meine Antworten.</pre>
             <div class="prompt-header-row">
               <h2 class="prompt-title">Übungsaufgaben erstellen lassen</h2>
               <div class="subject-pill">
-                <span class="emoji">🧠</span>
+                <span class="emoji">✨</span>
                 Allgemein &amp; Training
               </div>
             </div>
@@ -843,23 +909,29 @@ Bitte:
   <script>
     // Filterlogik
     const filterButtons = document.querySelectorAll(".filter-btn");
+    const sideButtons = document.querySelectorAll(".side-btn");
     const cards = document.querySelectorAll(".prompt-card");
 
-    filterButtons.forEach(btn => {
+    function applyFilter(filter) {
+      const allButtons = [...filterButtons, ...sideButtons];
+      allButtons.forEach(b => {
+        b.classList.toggle("active", b.getAttribute("data-filter") === filter);
+      });
+
+      cards.forEach(card => {
+        const category = card.getAttribute("data-category");
+        if (filter === "alle" || category === filter) {
+          card.style.display = "";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    [...filterButtons, ...sideButtons].forEach(btn => {
       btn.addEventListener("click", () => {
         const filter = btn.getAttribute("data-filter");
-
-        filterButtons.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-
-        cards.forEach(card => {
-          const category = card.getAttribute("data-category");
-          if (filter === "alle" || category === filter) {
-            card.style.display = "";
-          } else {
-            card.style.display = "none";
-          }
-        });
+        applyFilter(filter);
       });
     });
 
