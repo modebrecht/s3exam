@@ -574,6 +574,32 @@
       box-shadow: 0 12px 24px rgba(17, 24, 39, 0.14);
     }
 
+    .aop-figure {
+      margin-top: 12px;
+      border-radius: 14px;
+      border: 1px solid #e5e7eb;
+      padding: 14px;
+      background: radial-gradient(circle at 10% 10%, rgba(59, 91, 255, 0.1), transparent 35%), #f9fafb;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .aop-hero {
+      font-size: 20px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .aop-bubble {
+      border: 1px solid #c7d2fe;
+      border-radius: 14px;
+      padding: 14px;
+      background: linear-gradient(135deg, rgba(59, 91, 255, 0.06), rgba(124, 58, 237, 0.06));
+      font-size: 14px;
+      color: #0f172a;
+      box-shadow: 0 6px 18px rgba(59, 91, 255, 0.14);
+    }
+
     @media (max-width: 480px) {
       header { border-radius: 22px; }
       .prompt-card { border-radius: 16px; }
@@ -852,6 +878,62 @@ Teste damit mein erworbenes Wissen.</pre>
           </div>
         </article>
 
+        <!-- App erstellen -->
+        <article class="prompt-card" data-category="app">
+          <div class="prompt-inner">
+            <div class="prompt-header-row">
+              <h2 class="prompt-title">App erstellen</h2>
+              <div class="subject-pill">
+                <span class="emoji">🛠️</span>
+                App
+              </div>
+            </div>
+            <p class="prompt-desc">
+              Französisch interkative Übung
+            </p>
+            <div class="aop-figure">
+              <div class="aop-hero">Build your ideas with Gemini</div>
+              <div class="aop-bubble">
+                Französisch: interaktiver Lückentext für Thematik Restaurant Niveau 9. Klasse Sek Schweiz
+              </div>
+            </div>
+            <div class="card-footer">
+              <button class="copy-btn" onclick="copyPrompt(this)">
+                <span class="emoji">📋</span> Prompt kopieren
+              </button>
+              <div class="hint">Prompt kopieren und im Tool deiner Wahl einfügen.</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Photosynthese interaktiv (App) -->
+        <article class="prompt-card" data-category="app">
+          <div class="prompt-inner">
+            <div class="prompt-header-row">
+              <h2 class="prompt-title">Photosynthese interaktiv (App)</h2>
+              <div class="subject-pill">
+                <span class="emoji">🌱</span>
+                App
+              </div>
+            </div>
+            <p class="prompt-desc">
+              Interaktive Übung zur Photosynthese (9. Klasse Sek Schweiz) als App-Szenario.
+            </p>
+            <div class="aop-figure">
+              <div class="aop-hero">Build your ideas with Gemini</div>
+              <div class="aop-bubble">
+                Photosynthese erklären anhand interaktiver übung für die 9. Klasse Sekundarschule Schweiz.
+              </div>
+            </div>
+            <div class="card-footer">
+              <button class="copy-btn" onclick="copyPrompt(this)">
+                <span class="emoji">📋</span> Prompt kopieren
+              </button>
+              <div class="hint">Prompt kopieren und in der App/Plattform nutzen.</div>
+            </div>
+          </div>
+        </article>
+
         <!-- Deutsch 1 -->
         <article class="prompt-card" data-category="deutsch">
           <div class="prompt-inner">
@@ -1118,6 +1200,7 @@ Wenn ich «Lösungen» schreibe, erkläre alle Antworten kurz und klar.</pre>
           </div>
         </article>
 
+
         <!-- SOS 1 -->
         <article class="prompt-card" data-category="sos">
           <div class="prompt-inner">
@@ -1180,6 +1263,7 @@ Bitte:
       Denke kritisch mit, frag nach und nutze KI als Unterstützung, nicht als Abkürzung.
       <div class="footer-actions">
         <button class="footer-btn" id="footerPromptButton">Prompt verbessern</button>
+        <button class="footer-btn" id="footerAopButton">App erstellen</button>
       </div>
     </footer>
   </div>
@@ -1219,6 +1303,11 @@ Bitte:
     const footerPromptButton = document.getElementById("footerPromptButton");
     if (footerPromptButton) {
       footerPromptButton.addEventListener("click", () => applyFilter("prompt"));
+    }
+
+    const footerAopButton = document.getElementById("footerAopButton");
+    if (footerAopButton) {
+      footerAopButton.addEventListener("click", () => applyFilter("app"));
     }
 
     // Kopieren
