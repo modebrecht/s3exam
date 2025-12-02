@@ -351,6 +351,81 @@
       width: 100%;
     }
 
+    .helper-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .helper-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 12px;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      background: #f8fafc;
+    }
+
+    .badge-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(59, 91, 255, 0.18), rgba(124, 58, 237, 0.18));
+      color: #0f1f5a;
+      font-weight: 800;
+      font-size: 13px;
+      border: 1px solid rgba(136, 146, 171, 0.45);
+    }
+
+    .helper-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-size: 12.5px;
+    }
+
+    .helper-name {
+      font-weight: 700;
+      color: #0f172a;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .flag-icon {
+      display: inline-flex;
+      width: 20px;
+      height: 14px;
+      border-radius: 2px;
+      background-size: cover;
+      background-position: center;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+      flex-shrink: 0;
+    }
+
+    .flag-us {
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 48'><rect width='64' height='48' fill='%23b22234'/><g fill='%23fff'><rect y='3.692' width='64' height='3.692'/><rect y='11.076' width='64' height='3.692'/><rect y='18.46' width='64' height='3.692'/><rect y='25.844' width='64' height='3.692'/><rect y='33.228' width='64' height='3.692'/><rect y='40.612' width='64' height='3.692'/></g><rect width='25.6' height='25.844' fill='%233c3b6e'/><g fill='%23fff'><circle cx='4.3' cy='4.3' r='1.2'/><circle cx='9.6' cy='4.3' r='1.2'/><circle cx='14.9' cy='4.3' r='1.2'/><circle cx='20.2' cy='4.3' r='1.2'/><circle cx='4.3' cy='9.3' r='1.2'/><circle cx='9.6' cy='9.3' r='1.2'/><circle cx='14.9' cy='9.3' r='1.2'/><circle cx='20.2' cy='9.3' r='1.2'/><circle cx='4.3' cy='14.3' r='1.2'/><circle cx='9.6' cy='14.3' r='1.2'/><circle cx='14.9' cy='14.3' r='1.2'/><circle cx='20.2' cy='14.3' r='1.2'/><circle cx='4.3' cy='19.3' r='1.2'/><circle cx='9.6' cy='19.3' r='1.2'/><circle cx='14.9' cy='19.3' r='1.2'/><circle cx='20.2' cy='19.3' r='1.2'/></g></svg>");
+    }
+
+    .flag-fr {
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'><rect width='20' height='40' fill='%23005aa9'/><rect x='20' width='20' height='40' fill='%23fff'/><rect x='40' width='20' height='40' fill='%23ef4135'/></svg>");
+    }
+
+
+
+    .helper-link {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .helper-link:hover { text-decoration: underline; }
+
     .prompt-header-row {
       display: flex;
       align-items: flex-start;
@@ -540,6 +615,57 @@
               <div><strong>Regel 1:</strong> Versuche Aufgaben immer zuerst selbst zu lösen.</div>
               <div><strong>Regel 2:</strong> Nutze KI für Erklärungen, zusätzliche Beispiele und zur Fehlerkontrolle.</div>
               <div><strong>Regel 3:</strong> KI kann sich auch irren – denke immer mit und prüfe, ob die Lösung Sinn ergibt. 🧪 Hinweis: KI kann Fehler machen → immer mit Heft / Buch / Theorieblätter gegenchecken.</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Empfohlene Helfer -->
+        <article class="prompt-card" data-category="home">
+          <div class="prompt-inner">
+            <div class="prompt-header-row">
+              <h2 class="prompt-title">Empfohlene Lernhelfer</h2>
+              <div class="subject-pill">
+                <span class="emoji">🧭</span>
+                Übersicht
+              </div>
+            </div>
+            <div class="helper-list">
+              <div class="helper-item">
+                <span class="badge-circle">1</span>
+                <div class="helper-info">
+                  <div class="helper-name">
+                    ChatGPT <span class="flag-icon flag-us" aria-hidden="true"></span>
+                  </div>
+                  <a class="helper-link" href="https://chat.com/" target="_blank" rel="noreferrer">chat.com</a>
+                </div>
+              </div>
+              <div class="helper-item">
+                <span class="badge-circle">2</span>
+                <div class="helper-info">
+                  <div class="helper-name">
+                    MS Copilot <span class="flag-icon flag-us" aria-hidden="true"></span>
+                  </div>
+                  <a class="helper-link" href="https://copilot.microsoft.com/" target="_blank" rel="noreferrer">copilot.microsoft.com</a>
+                </div>
+              </div>
+              <div class="helper-item">
+                <span class="badge-circle">3</span>
+                <div class="helper-info">
+                  <div class="helper-name">
+                    Google Gemini (GoogleAccount benötigt) <span class="flag-icon flag-us" aria-hidden="true"></span>
+                  </div>
+                  <a class="helper-link" href="https://aistudio.google.com/" target="_blank" rel="noreferrer">aistudio.google.com</a>
+                </div>
+              </div>
+              <div class="helper-item">
+                <span class="badge-circle">4</span>
+                <div class="helper-info">
+                  <div class="helper-name">
+                    LeChat <span class="flag-icon flag-fr" aria-hidden="true"></span>
+                  </div>
+                  <a class="helper-link" href="https://chat.mistral.ai/" target="_blank" rel="noreferrer">chat.mistral.ai</a>
+                </div>
+              </div>
             </div>
           </div>
         </article>
