@@ -697,7 +697,7 @@
               <div><span class="danger">Wichtig:</span> Im echten Check darf keine KI verwendet werden. Diese Seite ist nur zur Vorbereitung gedacht.</div>
               <div><strong>Regel 1:</strong> Versuche Aufgaben immer zuerst selbst zu lösen.</div>
               <div><strong>Regel 2:</strong> Nutze KI für Erklärungen, zusätzliche Beispiele und zur Fehlerkontrolle.</div>
-              <div><strong>Regel 3:</strong> 🧪 Hinweis: Auch eine KI kann Fehler machen → denke immer mit und prüfe, ob die Lösung Sinn ergibt; mit Heft / Buch / Theorieblatt gegenchecken.</div>
+              <div><strong>Regel 3:</strong> 🧪 Hinweis: Auch eine KI kann Fehler machen → denke immer mit und prüfe, ob die Lösung Sinn ergibt; bitte mit Heft / Buch / Theorieblatt gegenchecken.</div>
             </div>
           </div>
         </article>
@@ -872,6 +872,30 @@ Gib mir auch an, wie viel Zeit du für den Test veranschlagst, und halte dich an
                 <span class="emoji">📋</span> Prompt kopieren
               </button>
               <div class="hint">Ersetze &lt;FACH&gt; durch das gewünschte Fach.</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Allgemein 6 -->
+        <article class="prompt-card" data-category="allgemein">
+          <div class="prompt-inner">
+            <div class="prompt-header-row">
+              <h2 class="prompt-title">Prüfungsfragen aus deiner Aufgabe</h2>
+              <div class="subject-pill">
+                <span class="emoji">📝</span>
+                Allgemein
+              </div>
+            </div>
+            <p class="prompt-desc">
+              Du gibst eine Aufgabe ein, KI macht 3 Prüfungsfragen daraus (Niveau S2/S3 Check).
+            </p>
+            <pre class="prompt-text">Hier ist meine Aufgabe: &lt;AUFGABE EINTIPPEN&gt;.
+Formuliere 3 Prüfungsfragen aus diesem Kontext, Niveau S2/S3 Check.</pre>
+            <div class="card-footer">
+              <button class="copy-btn" onclick="copyPrompt(this)">
+                <span class="emoji">📋</span> Prompt kopieren
+              </button>
+              <div class="hint">Aufgabe eingeben, dann Fragen übernehmen.</div>
             </div>
           </div>
         </article>
@@ -1098,7 +1122,7 @@ Frage mich die Fragen nacheinander und warte immer auf meine Antwort, bevor du d
             <p class="prompt-desc">
               Wenn du bei einem Grammatikthema unsicher bist.
             </p>
-            <pre class="prompt-text">Erkläre mir das Grammatikthema &lt;GRAMMATIKTHEMA&gt; (Sekundarstufe Schweiz). 
+            <pre class="prompt-text">Erkläre mir das Grammatikthema &lt;GRAMMATIKTHEMA&gt; auf Prüfungsniveau S2 / S3 Check. 
 Gib mir zuerst eine einfache Erklärung mit 2 Beispielsätzen. 
 Danach gib mir 6 kurze Übungsaufgaben dazu. 
 Wenn ich dir meine Lösungen schicke, korrigiere sie und erkläre mir in einfachen Worten meine Fehler.</pre>
@@ -1164,6 +1188,57 @@ Wenn ich «Korrigieren» schreibe, zeige die Lösungen mit Erklärungen Schritt 
           </div>
         </article>
 
+        <!-- Mathe 3 -->
+        <article class="prompt-card" data-category="mathe">
+          <div class="prompt-inner">
+            <div class="prompt-header-row">
+              <h2 class="prompt-title">Ähnliche Aufgaben generieren</h2>
+              <div class="subject-pill">
+                <span class="emoji">🧮</span>
+                Mathematik
+              </div>
+            </div>
+            <p class="prompt-desc">
+              Du tippst eine Matheaufgabe ein und bekommst ähnliche Aufgaben mit neuen Zahlen.
+            </p>
+            <pre class="prompt-text">&lt;AUFGABE HIER EINGEBEN&gt;.
+Erstelle bitte mehrere ähnliche Aufgaben zum selben Thema, aber mit anderen Zahlen.
+Zeige nur die Aufgaben, behalte die Lösungen für dich.</pre>
+            <div class="card-footer">
+              <button class="copy-btn" onclick="copyPrompt(this)">
+                <span class="emoji">📋</span> Prompt kopieren
+              </button>
+              <div class="hint">Perfekt zum Üben mit variierenden Zahlen.</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Mathe 4 -->
+        <article class="prompt-card" data-category="mathe">
+          <div class="prompt-inner">
+            <div class="prompt-header-row">
+              <h2 class="prompt-title">Schritt-für-Schritt-Erklärung</h2>
+              <div class="subject-pill">
+                <span class="emoji">🧮</span>
+                Mathematik
+              </div>
+            </div>
+            <p class="prompt-desc">
+              Lass dir deine obige Aufgabe Zeile für Zeile erklären, ohne Schritte zu überspringen.
+            </p>
+            <pre class="prompt-text">&lt;AUFGABE HIER EINGEBEN&gt;. 
+Erkläre mir obige Aufgabe Schritt für Schritt.
+Schreibe jeden Rechenschritt in einer neuen Zeile und erkläre kurz, was du machst.
+Lasse keinen Schritt aus, ich brauche vollständige Erklärungen.</pre>
+            <div class="card-footer">
+              <button class="copy-btn" onclick="copyPrompt(this)">
+                <span class="emoji">📋</span> Prompt kopieren
+              </button>
+              <div class="hint">Ideal für genaue Lösungswege.</div>
+            </div>
+          </div>
+        </article>
+
         <!-- Englisch 1 -->
         <article class="prompt-card" data-category="englisch">
           <div class="prompt-inner">
@@ -1177,8 +1252,8 @@ Wenn ich «Korrigieren» schreibe, zeige die Lösungen mit Erklärungen Schritt 
             <p class="prompt-desc">
               Für kurze Textproduktion auf Englisch.
             </p>
-            <pre class="prompt-text">I am a student in secondary school in Switzerland (about 14–16 years old). 
-Give me one writing task on level A2/B1 (Sek style). 
+            <pre class="prompt-text">I am a student in secondary school in Switzerland. 
+Give me one writing task on exam level for s2 / s3 check. 
 Only show me the task first. 
 After I send you my text (about 80–120 words), correct it and explain 5 typical mistakes I made in simple German.</pre>
             <div class="card-footer">
@@ -1206,7 +1281,7 @@ After I send you my text (about 80–120 words), correct it and explain 5 typica
             <p class="prompt-desc">
               Für Text- oder Hörverständnis ähnlich wie im Check.
             </p>
-            <pre class="prompt-text">Create a short English text suitable for a Swiss secondary school student (A2/B1 level), about 150–200 words. 
+            <pre class="prompt-text">Create a short English text suitable for a Swiss secondary school student on exam level for s2 / s3 check about 150–200 words. 
 Then ask me 6 questions about the text (mix of multiple choice and short answers). 
 Ask the questions one by one and wait for my answer each time. 
 After all questions, show me the correct answers and explain my mistakes in simple German.</pre>
@@ -1349,7 +1424,7 @@ Bitte:
               <button class="copy-btn" onclick="copyPrompt(this)">
                 <span class="emoji">📋</span> Prompt kopieren
               </button>
-              <div class="hint">Nutze das nicht erst 5 Minuten vor dem Test 😉</div>
+              <div class="hint">Nutze das rechtzeitig vor dem Test, nicht in letzter Minute.</div>
             </div>
           </div>
         </article>
