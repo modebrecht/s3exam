@@ -245,8 +245,8 @@
       right: 0;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      padding: 10px 8px;
+      gap: 6px;
+      padding: 6px;
       background: rgba(255, 255, 255, 0.92);
       border: 1px solid rgba(148, 163, 184, 0.4);
       border-radius: 14px 0 0 14px;
@@ -334,6 +334,22 @@
     @media (min-width: 720px) { .prompt-card { padding: 20px 20px 18px; } }
 
     .prompt-inner { position: relative; z-index: 1; }
+
+    .home-card .prompt-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+      min-height: auto;
+    }
+
+    .home-card .prompt-header-row {
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 2px;
+      width: 100%;
+    }
 
     .prompt-header-row {
       display: flex;
@@ -464,47 +480,70 @@
       </div>
 
       <div class="filter-bar" id="filterBar">
-        <button class="filter-btn active" data-filter="allgemein">
+        <button class="filter-btn active" data-filter="home">
+          <span>🏠</span>Home
+        </button>
+        <button class="filter-btn" data-filter="allgemein">
           <span>✨</span>Allgemein
         </button>
-        <button class="filter-btn" data-filter="deutsch">
-          <span>📚</span>Deutsch
-        </button>
         <button class="filter-btn" data-filter="mathe">
-          <span>➗</span>Mathematik
-        </button>
-        <button class="filter-btn" data-filter="englisch">
-          <span>🇬🇧</span>Englisch
-        </button>
-        <button class="filter-btn" data-filter="franz">
-          <span>🇫🇷</span>Französisch
+          <span>🧮</span>Mathematik
         </button>
         <button class="filter-btn" data-filter="nt">
           <span>🧪</span>N&amp;T
         </button>
+        <button class="filter-btn" data-filter="deutsch">
+          <span>DE</span>Deutsch
+        </button>
+        <button class="filter-btn" data-filter="englisch">
+          <span>EN</span>Englisch
+        </button>
+        <button class="filter-btn" data-filter="franz">
+          <span>FR</span>Französisch
+        </button>
         <button class="filter-btn" data-filter="sos">
           <span>🚨</span>SOS
-        </button>
-        <button class="filter-btn" data-filter="faq">
-          <span>❓</span>FAQ
         </button>
       </div>
     </header>
 
     <nav class="side-nav" aria-label="Schnellnavigation">
-      <button class="side-btn active" data-filter="allgemein" title="Allgemein">✨</button>
+      <button class="side-btn active" data-filter="home" title="Home">🏠</button>
+      <button class="side-btn" data-filter="allgemein" title="Allgemein">✨</button>
       <button class="side-btn" data-filter="mathe" title="Mathematik">🧮</button>
       <button class="side-btn" data-filter="nt" title="N &amp; T">🧪</button>
       <button class="side-btn" data-filter="deutsch" title="Deutsch">DE</button>
       <button class="side-btn" data-filter="englisch" title="Englisch">EN</button>
       <button class="side-btn" data-filter="franz" title="Französisch">FR</button>
       <button class="side-btn" data-filter="sos" title="SOS">🚨</button>
-      <button class="side-btn" data-filter="faq" title="FAQ">❓</button>
     </nav>
 
     <main id="promptGrid">
       <!-- Spalte 1 -->
       <div class="prompt-column">
+        <!-- Home -->
+        <article class="prompt-card home-card" data-category="home" aria-label="Home">
+          <div class="prompt-inner">
+            <div class="prompt-header-row">
+              <h2 class="prompt-title">Worum es hier geht</h2>
+              <div class="subject-pill">
+                <span class="emoji">🏠</span>
+                Home
+              </div>
+            </div>
+            <p class="prompt-desc">
+              Diese Seite hilft dir, mit einer KI (z.&nbsp;B. ChatGPT) für den Check S2 / Check S3 zu üben.
+              Nutze die Prompts für Erklärungen, Übungen und zum Kontrollieren deiner Lösungen.
+            </p>
+            <div class="rules">
+              <div><span class="danger">Wichtig:</span> Im echten Check darf keine KI verwendet werden. Diese Seite ist nur zur Vorbereitung gedacht.</div>
+              <div><strong>Regel 1:</strong> Versuche Aufgaben immer zuerst selbst zu lösen.</div>
+              <div><strong>Regel 2:</strong> Nutze KI für Erklärungen, zusätzliche Beispiele und zur Fehlerkontrolle.</div>
+              <div><strong>Regel 3:</strong> KI kann sich auch irren – denke immer mit und prüfe, ob die Lösung Sinn ergibt. 🧪 Hinweis: KI kann Fehler machen → immer mit Heft / Buch / Theorieblätter gegenchecken.</div>
+            </div>
+          </div>
+        </article>
+
         <!-- Allgemein 1 -->
         <article class="prompt-card" data-category="allgemein">
           <div class="prompt-inner">
@@ -875,28 +914,6 @@ Bitte:
           </div>
         </article>
 
-        <!-- FAQ -->
-        <article class="prompt-card" data-category="faq">
-          <div class="prompt-inner">
-            <div class="prompt-header-row">
-              <h2 class="prompt-title">Worum es hier geht</h2>
-              <div class="subject-pill">
-                <span class="emoji">❓</span>
-                FAQ
-              </div>
-            </div>
-            <p class="prompt-desc">
-              Diese Seite hilft dir, mit einer KI (z.&nbsp;B. ChatGPT) für den Check S2 / Check S3 zu üben.
-              Nutze die Prompts für Erklärungen, Übungen und zum Kontrollieren deiner Lösungen.
-            </p>
-            <div class="rules">
-              <div><span class="danger">Wichtig:</span> Im echten Check darf keine KI verwendet werden. Diese Seite ist nur zur Vorbereitung gedacht.</div>
-              <div><strong>Regel 1:</strong> Versuche Aufgaben immer zuerst selbst zu lösen.</div>
-              <div><strong>Regel 2:</strong> Nutze KI für Erklärungen, zusätzliche Beispiele und zur Fehlerkontrolle.</div>
-              <div><strong>Regel 3:</strong> KI kann sich auch irren – denke immer mit und prüfe, ob die Lösung Sinn ergibt. 🧪 Hinweis: KI kann Fehler machen → immer mit Heft / Buch / Theorieblätter gegenchecken.</div>
-            </div>
-          </div>
-        </article>
       </div>
     </main>
 
@@ -934,6 +951,8 @@ Bitte:
         applyFilter(filter);
       });
     });
+
+    applyFilter("home");
 
     // Kopieren
     function copyPrompt(button) {
